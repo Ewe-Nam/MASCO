@@ -128,7 +128,10 @@
         name: nameInput.value.trim(),
         email: emailInput.value.trim(),
         child_age_or_level: (form.querySelector('[name="child_info"]') || {}).value || '',
-        message: messageInput.value.trim()
+        message: messageInput.value.trim(),
+        // Honeypot: humans never check the hidden botcheck box. If it's set,
+        // a bot filled the form, and Web3Forms rejects the submission as spam.
+        botcheck: !!(form.querySelector('[name="botcheck"]') || {}).checked
       };
 
       submitBtn.disabled = true;

@@ -91,6 +91,10 @@
         <h3>Send us a message</h3>
         <form data-contact-form novalidate>
           <div class="form-fields">
+            <!-- Honeypot spam trap: hidden from people, auto-filled by bots.
+                 A filled botcheck makes Web3Forms reject the submission. -->
+            <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off"
+                   aria-hidden="true" style="display:none">
             <div>
               <input type="text" name="name" placeholder="Parent / guardian name">
               <div class="field-error" data-error-for="name"></div>
