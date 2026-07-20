@@ -66,7 +66,7 @@
   // the school inbox. Get a free access key at web3forms.com (just enter
   // the destination email, no account signup) and paste it below in place
   // of YOUR_WEB3FORMS_ACCESS_KEY. See README.md for full setup steps.
-  var WEB3FORMS_ACCESS_KEY = 'YOUR_WEB3FORMS_ACCESS_KEY';
+  var WEB3FORMS_ACCESS_KEY = '31cd5dcb-9a0f-4bf3-9433-eae08bb869bc';
   var SCHOOL_EMAIL = 'mamfeapostolicschoolcomplex62@gmail.com';
 
   function isValidEmail(value) {
