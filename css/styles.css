@@ -125,7 +125,11 @@ button, input, textarea{outline-offset:2px}
 /* ---------- hero (home) ---------- */
 .hero{
   position:relative;overflow:hidden;color:#fff;padding:66px 22px 96px;
-  background:linear-gradient(155deg,var(--blue) 0%,var(--blue-mid) 52%,var(--blue-dark) 100%);
+  /* Educational classroom backdrop (Pexels, free for commercial use) sits
+     behind a translucent brand-blue gradient so white text stays legible. */
+  background:
+    linear-gradient(155deg,rgba(30,42,120,.93) 0%,rgba(41,54,145,.86) 52%,rgba(20,28,80,.95) 100%),
+    url(../assets/photos/hero-bg.jpg) center/cover no-repeat;
 }
 .blob{position:absolute;border-radius:50%}
 .hero-inner{max-width:1220px;margin:0 auto;position:relative;z-index:2;display:flex;flex-wrap:wrap;gap:48px;align-items:center;justify-content:space-between}
