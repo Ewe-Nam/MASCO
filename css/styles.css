@@ -117,7 +117,7 @@ button, input, textarea{outline-offset:2px}
 .mobile-link.active{background:var(--panel-blue)}
 .mobile-cta{margin-top:8px;font-size:16px;padding:12px;width:100%}
 
-@media (max-width:880px){
+@media (max-width:980px){
   .desktop-nav{display:none!important}
   .hamburger{display:flex!important}
 }
@@ -194,6 +194,34 @@ button, input, textarea{outline-offset:2px}
 .value-dot{width:54px;height:54px;border-radius:18px}
 .value-card h3{font-size:22px;color:var(--blue);margin-top:20px}
 .value-card p{font-size:15px;color:var(--muted);line-height:1.6;margin-top:10px}
+
+/* ---------- why choose us ---------- */
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:22px}
+.why-card{background:var(--card-bg);border-radius:24px;padding:30px 26px;border:2px solid var(--card-border);box-shadow:0 6px 18px rgba(30,42,120,.05)}
+.why-icon{width:56px;height:56px;border-radius:16px;display:flex;align-items:center;justify-content:center}
+.why-icon svg{width:28px;height:28px;stroke:#fff;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.why-card h3{font-size:20px;color:var(--blue);margin-top:18px}
+.why-card p{font-size:14.5px;color:var(--muted);line-height:1.55;margin-top:10px}
+
+/* ---------- campus life cards ---------- */
+.campus-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px}
+.campus-card{display:block;background:var(--card-bg);border-radius:24px;overflow:hidden;border:2px solid var(--card-border);box-shadow:0 6px 18px rgba(30,42,120,.06);transition:transform .18s}
+.campus-card:hover{transform:translateY(-6px)}
+.campus-media{aspect-ratio:16/10;position:relative}
+.campus-body{padding:22px 24px}
+.campus-body h3{font-size:21px;color:var(--blue)}
+.campus-body p{font-size:14.5px;color:var(--muted);line-height:1.55;margin-top:8px}
+.campus-body .more{display:inline-block;margin-top:14px;font-family:'Fredoka';font-weight:600;font-size:14px;color:var(--red)}
+
+/* ---------- testimonials ---------- */
+.quote-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px}
+.quote-card{position:relative;background:var(--card-bg);border-radius:24px;padding:34px 30px 28px;border:2px solid var(--card-border);box-shadow:0 6px 18px rgba(30,42,120,.05)}
+.quote-mark{font-family:'Fredoka';font-weight:700;font-size:56px;line-height:.6;color:var(--yellow)}
+.quote-card p{font-size:15.5px;color:#3a3c52;line-height:1.6;margin-top:6px;font-style:italic}
+.quote-author{display:flex;align-items:center;gap:12px;margin-top:20px}
+.quote-avatar{flex:none;width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Fredoka';font-weight:700;color:#fff;font-size:18px}
+.quote-author .who{font-weight:800;color:var(--blue);font-size:15px}
+.quote-author .rel{font-size:13px;color:var(--muted)}
 
 /* ---------- CTA band ---------- */
 .cta-band{background:var(--blue);color:#fff;padding:clamp(44px,6vw,72px) 22px;position:relative;overflow:hidden}
@@ -322,7 +350,9 @@ button, input, textarea{outline-offset:2px}
 .footer-brand .sub{font-size:11px;color:var(--yellow);letter-spacing:2px}
 .footer-brand p{margin-top:16px;font-size:14.5px;line-height:1.6;color:rgba(255,255,255,.7)}
 .social-row{display:flex;gap:10px;margin-top:18px}
-.social-circle{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;font-family:'Fredoka';font-weight:700;color:#fff;font-size:15px}
+.social-circle{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;font-family:'Fredoka';font-weight:700;color:#fff;font-size:15px;transition:background .15s}
+.social-circle:hover{background:var(--red)}
+.social-circle svg{width:18px;height:18px;fill:#fff;display:block}
 .footer-col-title{font-family:'Fredoka';font-weight:600;color:var(--yellow);font-size:15px;margin-bottom:14px}
 .footer-links{display:flex;flex-direction:column;gap:9px}
 .footer-links a{cursor:pointer;color:rgba(255,255,255,.78);font-size:14.5px;font-weight:600}

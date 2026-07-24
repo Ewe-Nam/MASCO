@@ -53,8 +53,17 @@ npx serve .
    the `<iframe>` in `contact.html` (search a more specific query, e.g. the
    street address, in Google Maps, then use its "Share > Embed a map" HTML).
 
-6. **Social links.** The `f` / `X` / `◉` circles in the footer are
-   placeholders — point their `href`s at the school's real social pages.
+6. **Social links.** The footer social icons (Facebook, Instagram, X,
+   YouTube) currently point to `#` — set each `href` to the school's real
+   social pages.
+
+7. **Sports & wellness photo.** The Campus Life page and its home-page
+   teaser have one remaining photo placeholder (sports/wellness) — swap in
+   a real photo when available.
+
+8. **Testimonials.** The parent quotes on the home page are clearly-marked
+   placeholders (see the `NOTE` comment in `index.html`) — replace with
+   real parent names and quotes.
 
 ## Structure
 
@@ -64,6 +73,7 @@ website/
   about.html
   academics.html
   admissions.html
+  campus-life.html   student life / arts & culture / sports & wellness
   gallery.html       client-side category filter (js/main.js)
   staff.html
   contact.html       form validation + Web3Forms submit (js/main.js)
