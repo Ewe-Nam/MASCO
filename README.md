@@ -41,12 +41,13 @@ npx serve .
 3. **Logo.** `assets/logo.png` is the official badge you provided. It's
    used in the navbar, footer, and home-page hero crest on every page.
 
-4. **Placeholder contact details.** The address, phone number, and hours in
-   the footer and Contact page are placeholders carried over from the
-   design handoff — double check the town/region (the handoff said "Mamfe,
-   Ghana", but Mamfe is a town in Cameroon's Southwest Region — confirm the
-   real location) and replace the phone number and hours with the real
-   ones.
+4. **Contact details.** The school phone (`+233 59 552 4547`) is live
+   site-wide as tap-to-call links, the floating WhatsApp button, and the
+   home-page structured data. The number lives in one place for the
+   floating buttons — `SCHOOL_PHONE` / `SCHOOL_WHATSAPP` in `js/main.js` —
+   plus the footer/Contact `tel:` links. Location is Mamfe (Akuapem, Eastern
+   Region, Ghana). The opening **hours** (Mon–Fri 7:30–4:00) are still a
+   placeholder from the design handoff — confirm or correct them.
 
 5. **Map embed.** `contact.html` embeds a public Google Maps iframe
    searching "Mamfe" — no API key needed, but it's not pinned to the exact
