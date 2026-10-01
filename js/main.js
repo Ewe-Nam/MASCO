@@ -174,8 +174,10 @@
   var ICON_CALL = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.57.57a1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.25 1.01l-2.2 2.21z"/></svg>';
 
   function initFloatingContact() {
-    var wrap = document.createElement('div');
+    // an <aside> landmark, so the buttons aren't orphaned outside any region
+    var wrap = document.createElement('aside');
     wrap.className = 'float-contact';
+    wrap.setAttribute('aria-label', 'Quick contact');
     wrap.innerHTML =
       '<a class="float-btn float-call" href="tel:' + SCHOOL_PHONE + '" aria-label="Call the school on ' + SCHOOL_PHONE_DISPLAY + '">' + ICON_CALL + '</a>' +
       '<a class="float-btn float-wa" href="https://wa.me/' + SCHOOL_WHATSAPP + '?text=' + encodeURIComponent(WA_TEXT) +

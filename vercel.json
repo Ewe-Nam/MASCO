@@ -1,0 +1,12 @@
+{
+  "redirects": [
+    { "source": "/about", "destination": "/about.html", "permanent": true },
+    { "source": "/academics", "destination": "/academics.html", "permanent": true },
+    { "source": "/admissions", "destination": "/admissions.html", "permanent": true },
+    { "source": "/campus-life", "destination": "/campus-life.html", "permanent": true },
+    { "source": "/events", "destination": "/events.html", "permanent": true },
+    { "source": "/gallery", "destination": "/gallery.html", "permanent": true },
+    { "source": "/staff", "destination": "/staff.html", "permanent": true },
+    { "source": "/contact", "destination": "/contact.html", "permanent": true }
+  ]
+}

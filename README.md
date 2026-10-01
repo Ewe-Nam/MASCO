@@ -56,8 +56,13 @@ npx serve .
    street address, in Google Maps, then use its "Share > Embed a map" HTML).
 
 6. **Social links.** The footer social icons (Facebook, Instagram, X,
-   YouTube) currently point to `#` — set each `href` to the school's real
-   social pages.
+   YouTube) are **hidden** until the school has real pages, so parents
+   never hit dead links. To turn one on: set its `href` on the
+   `<div class="social-row" hidden>` block in each page's footer, then
+   remove the `hidden` attribute.
+
+   Short URLs like `/about` or `/contact` redirect to the `.html` pages
+   via `vercel.json`.
 
 7. **Sports & wellness photo.** The Campus Life page and its home-page
    teaser have one remaining photo placeholder (sports/wellness) — swap in
