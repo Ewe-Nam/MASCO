@@ -414,3 +414,9 @@ body.lb-open{overflow:hidden}
 .lb-close:hover,.lb-nav:hover{background:rgba(255,255,255,.3)}
 .lb-close:focus-visible,.lb-nav:focus-visible{outline:3px solid var(--yellow);outline-offset:2px}
 @media (max-width:600px){.lb-nav{top:auto;bottom:16px;transform:none}}
+
+/* let long values (e.g. the email address) wrap instead of widening the
+   page on small screens */
+.contact-left,.contact-form-card{min-width:0}
+.contact-card > div:last-child{min-width:0}
+.contact-card .value{overflow-wrap:anywhere}
