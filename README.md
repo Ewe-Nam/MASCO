@@ -28,14 +28,15 @@ npx serve .
    - Until you do this, the form shows a friendly "not configured yet"
      message instead of silently failing.
 
-2. **Real photos.** Every photo spot is a labeled placeholder tile (dashed
-   border, caption describing what belongs there) so it's obvious what to
-   swap. Replace the `<div class="photo-placeholder">...</div>` block in
-   each spot with a real `<img src="assets/photos/whatever.jpg" alt="...">`.
-   Needed shots: home hero (pupils/campus), mission band (classroom), about
-   (campus/founding photo + headteacher portrait), gallery (9 photos —
-   graduation, sports, story time, art, speech & prize, playground, science
-   fair, cultural day, reading corner), staff portraits (8 people).
+2. **Real photos.** Most photo spots now use real Mamfe Apostolic photos
+   (hero backdrop + card, mission band, gallery, About "our story", and the
+   Campus Life page/teaser) in `assets/photos/`. Two spots still use
+   `photo-placeholder` tiles and need real, *identified* photos:
+   - **Staff portraits** (`staff.html`, 8 cards) — each is tied to a role
+     (Headteacher, Daycare Lead, …), so supply a headshot per named person.
+   - **Headteacher portrait** (`about.html`, headteacher message panel).
+   To fill one, replace its `<div class="photo-placeholder">...</div>` with
+   `<img class="photo-img" src="assets/photos/whatever.jpg" alt="...">`.
 
 3. **Logo.** `assets/logo.png` is the official badge you provided. It's
    used in the navbar, footer, and home-page hero crest on every page.
