@@ -6,6 +6,21 @@
 <title>Contact Us — Mamfe Apostolic School Complex</title>
 <meta name="description" content="Questions, visits, admissions — reach Mamfe Apostolic School Complex any time.">
 <link rel="icon" href="assets/logo.png">
+<link rel="canonical" href="https://masco-eta.vercel.app/contact.html">
+<meta name="theme-color" content="#1E2A78">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Mamfe Apostolic School Complex">
+<meta property="og:title" content="Contact Us — Mamfe Apostolic School Complex">
+<meta property="og:description" content="Questions, visits, admissions — reach Mamfe Apostolic School Complex any time.">
+<meta property="og:url" content="https://masco-eta.vercel.app/contact.html">
+<meta property="og:image" content="https://masco-eta.vercel.app/assets/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Contact Us — Mamfe Apostolic School Complex">
+<meta name="twitter:description" content="Questions, visits, admissions — reach Mamfe Apostolic School Complex any time.">
+<meta name="twitter:image" content="https://masco-eta.vercel.app/assets/og-image.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -98,18 +113,22 @@
             <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off"
                    aria-hidden="true" style="display:none">
             <div>
-              <input type="text" name="name" placeholder="Parent / guardian name">
+              <label class="field-label" for="cf-name">Parent / guardian name</label>
+              <input type="text" id="cf-name" name="name" autocomplete="name" placeholder="e.g. Ama Owusu">
               <div class="field-error" data-error-for="name"></div>
             </div>
             <div>
-              <input type="email" name="email" placeholder="Email address">
+              <label class="field-label" for="cf-email">Email address</label>
+              <input type="email" id="cf-email" name="email" autocomplete="email" placeholder="e.g. ama@example.com">
               <div class="field-error" data-error-for="email"></div>
             </div>
             <div>
-              <input type="text" name="child_info" placeholder="Child's age / level of interest">
+              <label class="field-label" for="cf-child">Child's age / level of interest</label>
+              <input type="text" id="cf-child" name="child_info" placeholder="e.g. Age 4, Kindergarten">
             </div>
             <div>
-              <textarea name="message" rows="4" placeholder="How can we help?"></textarea>
+              <label class="field-label" for="cf-message">How can we help?</label>
+              <textarea id="cf-message" name="message" rows="4" placeholder="Your message..."></textarea>
               <div class="field-error" data-error-for="message"></div>
             </div>
             <button type="submit" class="submit-btn" data-submit-btn>Send message</button>
