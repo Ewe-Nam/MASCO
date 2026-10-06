@@ -9,16 +9,18 @@
   // Compares each nav link's own href to the current page filename, so the
   // exact same header markup (duplicated per page) lights up correctly
   // wherever it's dropped in.
-  function currentFile() {
-    var path = window.location.pathname.split('/').pop();
-    return path === '' ? 'index.html' : path;
+  // Normalises "/about", "/about.html", "about.html" -> "about" and
+  // "/", "/index.html" -> "index", so clean URLs and file names both match.
+  function pageKey(path) {
+    var name = (path || '').split('?')[0].split('#')[0].split('/').pop();
+    name = name.replace(/\.html$/, '');
+    return name === '' ? 'index' : name;
   }
 
   function markActiveNav() {
-    var here = currentFile();
+    var here = pageKey(window.location.pathname);
     document.querySelectorAll('[data-nav-link]').forEach(function (link) {
-      var target = (link.getAttribute('href') || '').split('/').pop();
-      if (target === here) {
+      if (pageKey(link.getAttribute('href')) === here) {
         link.classList.add('active');
       }
     });

@@ -1,0 +1,17 @@
+// Mamfe Apostolic School Complex — public website on Cloudflare Workers
+// (static assets only: no Worker script, so asset requests are free).
+{
+  "name": "masco-website",
+  "compatibility_date": "2026-10-06",
+  "assets": {
+    // The repo root is the site; .assetsignore keeps repo-only files private.
+    "directory": ".",
+    // Clean URLs: /about serves about.html; /about.html redirects to /about.
+    "html_handling": "auto-trailing-slash",
+    // Unknown paths get the branded 404.html with a real 404 status.
+    "not_found_handling": "404-page"
+  },
+  "routes": [
+    { "pattern": "mamfeapostolicschoolcomplex.com", "custom_domain": true }
+  ]
+}
