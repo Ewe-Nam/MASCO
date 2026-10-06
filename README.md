@@ -6,14 +6,15 @@ Academics, Admissions, Gallery, Staff, Contact.
 
 ## Running it locally
 
-No build step — just open `index.html` in a browser, or serve the folder
-with any static server, e.g.:
+No build step. Links are root-relative clean URLs (`/about`), so serve the
+folder rather than double-clicking files:
 
 ```
 npx serve .
 ```
 
-(or Python: `python -m http.server 8080`)
+(`npx wrangler dev` also works but can crash on this machine's Windows
+path; use `serve` for quick local checks.)
 
 ## Before you launch
 
@@ -86,7 +87,11 @@ website/
   contact.html       form validation + Web3Forms submit (js/main.js)
   css/styles.css     all shared styles + design tokens (colors, type, radii)
   js/main.js         nav active-state, mobile menu, gallery filter, contact form
-  assets/logo.png    official school badge
+  assets/            logo, photos, OG share image
+  wrangler.jsonc     Cloudflare Worker config
+  _headers           security/caching headers
+  .assetsignore      files never published
+  cloudflare/        www -> bare-domain redirect Worker
 ```
 
 Each page is a real, separate HTML file (not a single-page app) — the
@@ -95,8 +100,32 @@ build-tool-free static site. `js/main.js` figures out the active nav item
 by comparing each link's `href` to the current page, so the shared header
 markup lights up correctly wherever it's dropped in.
 
-## Deploying
+## Hosting & deploying (Cloudflare)
 
-Since it's plain static files, it deploys anywhere: Netlify (drag-and-drop
-the `website` folder), Vercel, GitHub Pages, or any regular web host —
-no Node.js or build step needed on your end.
+The site is hosted on **Cloudflare Workers static assets** at
+**https://mamfeapostolicschoolcomplex.com** (domain registered with
+Cloudflare Registrar).
+
+- `wrangler.jsonc` — the `masco-website` Worker: clean URLs
+  (`/about` serves `about.html`; `/about.html` redirects to `/about`),
+  branded `404.html` for unknown paths, custom domain attached.
+- `.assetsignore` — repo-only files that must never be published
+  (README, configs, `.git`, …). Add any new private file here.
+- `_headers` — security headers + 1-day image caching.
+- `cloudflare/www-redirect/` — tiny separate Worker that 301-redirects
+  `www.` to the bare domain (kept separate so normal page/image requests
+  never run Worker code and stay free).
+
+Deploy manually (from this folder):
+
+```
+npx wrangler deploy                       # the website
+cd cloudflare/www-redirect && npx wrangler deploy   # only if the www worker changes
+```
+
+For automatic deploys on every merge to `main`, connect the GitHub repo in
+the Cloudflare dashboard (Workers & Pages → masco-website → Settings →
+Builds → Connect).
+
+`vercel.json` only keeps the old `masco-eta.vercel.app` address
+redirecting to the new domain, so previously shared links keep working.

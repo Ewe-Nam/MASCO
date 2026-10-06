@@ -1,0 +1,12 @@
+# Files in the repo that must NOT be published as part of the website
+.git
+.gitignore
+.assetsignore
+.wrangler
+.claude
+node_modules
+wrangler.jsonc
+cloudflare
+vercel.json
+README.md
+logo 3 plain.png
