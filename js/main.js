@@ -137,6 +137,7 @@
       };
 
       submitBtn.disabled = true;
+      form.setAttribute('aria-busy', 'true');
       var originalLabel = submitBtn.textContent;
       submitBtn.innerHTML = '<span class="spinner"></span>Sending…';
 
@@ -158,6 +159,7 @@
           showStatus('err', 'Something went wrong sending your message. Please try again or email us directly.');
         })
         .finally(function () {
+          form.removeAttribute('aria-busy');
           submitBtn.disabled = false;
           submitBtn.textContent = originalLabel;
         });
@@ -273,6 +275,71 @@
     });
   }
 
+  // ---------- loading indicators ----------
+  // Photos shimmer in their frame until they arrive, then fade in.
+  function initImageLoading() {
+    document.querySelectorAll('img.photo-img').forEach(function (img) {
+      if (img.complete && img.naturalWidth) return;
+      var frame = img.parentElement;
+      img.classList.add('is-loading');
+      frame.classList.add('img-wait');
+      function done() {
+        img.classList.remove('is-loading');
+        frame.classList.remove('img-wait');
+      }
+      img.addEventListener('load', done, { once: true });
+      img.addEventListener('error', done, { once: true });
+    });
+  }
+
+  // Going to another page: a progress bar straight away, plus the crest
+  // loader if the next page takes more than a moment to arrive.
+  function initPageLoader() {
+    var bar = null, loader = null, timer = null, safety = null;
+
+    function start() {
+      if (bar) return;
+      bar = document.createElement('div');
+      bar.className = 'nav-progress';
+      bar.setAttribute('aria-hidden', 'true');
+      document.body.appendChild(bar);
+      timer = setTimeout(function () {
+        loader = document.createElement('div');
+        loader.className = 'page-loader';
+        loader.setAttribute('role', 'status');
+        loader.innerHTML =
+          '<div class="page-loader-mark"><img src="/assets/logo.png" alt=""></div>' +
+          '<p class="page-loader-text">Loading…</p>';
+        document.body.appendChild(loader);
+      }, 450);
+      // never leave the page covered if the browser gives up on the link
+      safety = setTimeout(stop, 15000);
+    }
+    function stop() {
+      clearTimeout(timer);
+      clearTimeout(safety);
+      if (bar) bar.remove();
+      if (loader) loader.remove();
+      bar = loader = null;
+    }
+
+    document.addEventListener('click', function (e) {
+      if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+      var a = e.target.closest && e.target.closest('a[href]');
+      if (!a || (a.target && a.target !== '_self') || a.hasAttribute('download')) return;
+      var url = new URL(a.href, location.href);
+      // tel:, mailto:, WhatsApp and other sites are not page loads here
+      if (url.origin !== location.origin) return;
+      // links to a section of this same page just scroll
+      if (url.pathname === location.pathname && url.search === location.search) return;
+      start();
+    });
+    // Esc stops loading in most browsers; back/forward can restore this
+    // page from memory with the loader still showing.
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') stop(); });
+    window.addEventListener('pageshow', function (e) { if (e.persisted) stop(); });
+  }
+
   document.addEventListener('DOMContentLoaded', function () {
     markActiveNav();
     initMobileMenu();
@@ -280,5 +347,7 @@
     initContactForm();
     initFloatingContact();
     initLightbox();
+    initImageLoading();
+    initPageLoader();
   });
 })();
