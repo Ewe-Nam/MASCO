@@ -28,11 +28,12 @@ for quick local checks.)
   links, the floating WhatsApp button and the home-page structured data.
   For the floating buttons the number lives in one place:
   `SCHOOL_PHONE` / `SCHOOL_WHATSAPP` in `js/main.js`.
-- **Email:** `mamfeapostolicschoolcomplex62@gmail.com`.
-  `info@mamfeapostolicschoolcomplex.com` also forwards there
-  (Cloudflare Email Routing).
+- **Email:** the site shows `info@mamfeapostolicschoolcomplex.com`
+  (clickable `mailto:` links). Cloudflare Email Routing forwards it to the
+  school Gmail, `mamfeapostolicschoolcomplex62@gmail.com`.
 - **Contact form:** posts to [Web3Forms](https://web3forms.com), which
-  emails each message to the school Gmail. It has a hidden honeypot field
+  emails each message straight to the school Gmail (it doesn't go
+  through info@, so the form keeps working even if forwarding changes). It has a hidden honeypot field
   for spam.
 - **Map:** `contact.html` embeds a Google Maps search for
   "Mamfe, Akuapem, Eastern Region, Ghana". To pin the exact campus,
