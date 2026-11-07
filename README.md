@@ -37,8 +37,9 @@ for quick local checks.)
   school Gmail, `mamfeapostolicschoolcomplex62@gmail.com`.
 - **Contact form:** posts to [Web3Forms](https://web3forms.com), which
   emails each message straight to the school Gmail (it doesn't go
-  through info@, so the form keeps working even if forwarding changes). It has a hidden honeypot field
-  for spam.
+  through info@, so the form keeps working even if forwarding changes).
+  The delivery address lives in one place: `SCHOOL_EMAIL` in `js/main.js`.
+  It has a hidden honeypot field for spam.
 - **Map:** `contact.html` embeds a Google Maps search for
   "Mamfe, Akuapem, Eastern Region, Ghana". To pin the exact campus,
   replace the iframe `src` with Google Maps' *Share → Embed a map* code.
@@ -77,8 +78,13 @@ index.html … staff.html   one HTML file per page (shared header/footer)
 css/styles.css            all styles + design tokens (colours, type, radii)
 js/main.js                nav state, mobile menu, gallery filter + lightbox,
                           contact form, WhatsApp/call buttons, loading
-                          indicators (page progress bar, photo shimmer)
-assets/                   logo, icons, photos, social share image
+                          indicators (see below)
+assets/                   logo, icons, photos, social share image,
+                          ewenam-logo.png (developer credit in the footer)
+favicon.ico               browser-tab icon (plus assets/icon-*.png)
+site.webmanifest          app name, icons and theme colour for phones
+logo 3 plain.png          original crest artwork; kept in the repo but
+                          never published (listed in .assetsignore)
 sitemap.xml, robots.txt   for search engines
 wrangler.jsonc            Cloudflare Worker config
 _headers                  security + caching headers
@@ -91,6 +97,18 @@ Each page is a real, separate HTML file (not a single-page app). The
 header/footer markup is duplicated across files, which is normal for a
 build-tool-free static site. `js/main.js` works out the active nav item
 from the current URL.
+
+### Loading indicators
+
+- **Page progress bar:** a thin blue-red-yellow bar runs along the top
+  as soon as a link to another page is clicked.
+- **Loading overlay:** if the next page takes longer than about half a
+  second, a "Loading…" overlay with the spinning crest appears. It clears
+  itself after 15 seconds or on Esc, and when going Back.
+- **Photo shimmer:** photos show a soft shimmer until they finish
+  loading, then fade in.
+- Calls, emails, WhatsApp, new-tab links and same-page links never trigger
+  the loader, and visitors who prefer reduced motion get calm versions.
 
 ## Hosting & deploying (Cloudflare)
 
