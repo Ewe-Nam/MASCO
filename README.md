@@ -24,6 +24,10 @@ for quick local checks.)
 
 ## Contact details & email
 
+- **Postal address:** P.O. Box 2, Mamfe-Akuapem, Eastern Region, Ghana
+  (footer, contact page and the home-page structured data).
+- **Headteacher:** Miss Mary Ahwireng (About page message and the
+  first Staff card).
 - **Phone / WhatsApp:** `+233 59 552 4547`, shown site-wide as tap-to-call
   links, the floating WhatsApp button and the home-page structured data.
   For the floating buttons the number lives in one place:
